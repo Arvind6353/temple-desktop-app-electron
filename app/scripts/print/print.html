@@ -1,0 +1,336 @@
+
+<style>
+p{
+
+  font-size:16px !important;
+}
+
+md-dialog md-dialog-content .md-title{
+  color:green !important;
+}
+
+md-dialog .md-dialog-content {
+    padding: 24px;
+    color: black;
+    background-color: aliceblue !important;
+}
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+</style>
+
+
+<div class="container" id="print">
+    <div class="row">
+        <div class="col-xs-12">
+        <div class="invoice-title">
+          <h2>Invoice</h2><h3 class="pull-right">Order # {{row.RECEIPT_NO}}</h3>
+        </div>
+       </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+
+   <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+
+       <span><b>  Contact Details</b> </span>
+
+      </div>
+      
+      <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Name :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.NAME}}
+
+             </div> 
+
+
+         </div> 
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Mobile :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.MOBILE}}
+
+             </div> 
+
+
+         </div> 
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Address :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.ADDRESS}} <br/>
+
+                {{row.PINCODE}}
+
+             </div> 
+
+         </div> 
+
+      </div>  
+
+    </div>
+
+
+    <!-- 2nd panel-->  
+
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+
+       <span><b>  Account Details </b></span>
+
+      </div>
+      
+      <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Life Member No :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.LIFE_MEM_NO}}
+
+             </div> 
+
+
+         </div> 
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Trustee Account No :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.TRUSTEE_ACC_NO}}
+
+             </div> 
+
+
+         </div> 
+
+
+      </div>  
+
+    </div>
+
+    <!-- 3rd panel -->  
+
+
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+
+       <span><b>  User Details</b> </span>
+
+      </div>
+      
+      <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Sevai:</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.SEVAI_TYPE}}
+
+             </div> 
+
+
+         </div> 
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Gothram :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.GOTHRAM}}
+
+             </div> 
+
+         </div> 
+
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Star :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.STAR}}
+
+             </div> 
+
+         </div> 
+
+
+        <div class="row">&nbsp;</div>
+
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Rasi :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.RASI}}
+
+             </div> 
+
+         </div>  
+
+      </div>  
+
+    </div>
+
+     <!-- 4th panel -->
+
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+
+       <span><b>  Order Details </b></span>
+
+      </div>
+      
+      <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Order No:</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.RECEIPT_NO}}
+
+             </div> 
+
+
+         </div> 
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Amount :</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.AMOUNT}}
+
+             </div> 
+
+         </div> 
+
+
+
+         <div class="row">&nbsp;</div>
+
+
+         <div class="row">
+
+            <div class="col-xs-4">
+
+                <b>Date of Order:</b>
+            </div>
+             
+             <div class="col-xs-8">
+
+                {{row.DATE}}
+
+             </div> 
+
+         </div> 
+
+
+
+      </div>  
+
+    </div>
+
+   </div>  <!-- end of final row -->
+
+
+</div>
+
+
+<center>
+<md-button class="md-raised md-primary" ng-click="print()" id="printButton">Print</md-button>
+</center>
+

@@ -1,0 +1,77 @@
+    <md-content layout="column" flex layout-padding>
+      
+      <md-card layout-padding>
+
+        <md-toolbar class="md-table-toolbar md-default"  aria-hidden="false" style="">
+		  <div class="md-toolbar-tools">
+		    	 <md-input-container style="margin:60px 20px 20px 20px;" class="md-block" flex-gt-xs>
+		                <label>Filter by search</label>
+		                <input type="text" ng-model="filterName">
+		            </md-input-container>
+
+		  		<div ng-hide="true">
+		                {{(filteredRows = (rows | filter: filterName))}}
+		          </div>
+
+  			</div>
+		</md-toolbar>
+
+        <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length" style="height:40px">
+          <div class="md-toolbar-tools" style="margin:5px 10px 10px 10px">
+			 <!-- <span>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</span>  -->
+			 <span> Operations </span>
+
+            <ng-md-icon icon="mode_edit" size="30" title="Edit the selected item" style="fill:yellow;cursor:pointer;" ng-click="edit($event)"></ng-md-icon> 
+            <ng-md-icon icon="delete" size="30" title="Delete the selected item" style="fill:red;cursor:pointer;"  ng-click="delete()"></ng-md-icon> 
+            <ng-md-icon icon="print" size="30" title="Print the selected item" style="fill:cornsilk;cursor:pointer;" ng-click="print()"></ng-md-icon> 
+
+
+          </div>
+        </md-toolbar>
+        
+        <md-table-container>
+          <table md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
+            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+              <tr md-row>
+		      	<th md-column  md-order-by="RECEIPT_NO"><span>Receipt #</span></th>
+		        <th md-column  md-order-by="NAME"><span>Name</span></th>
+		        <th md-column ><span>Mobile</span></th>
+		        <th md-column >Life Member #</th>
+		        <th md-column >Trustee Acc #</th>
+		        <th md-column md-order-by="SEVAI_TYPE">Sevai</th>
+		        <th md-column md-order-by="GOTHRAM">Gothram</th>
+		        <th md-column md-order-by="STAR">Star</th>
+		        <th md-column md-order-by="RASI">Rasi</th>
+		        <th md-column md-order-by="AMOUNT">Amount</th>
+		        <th md-column md-order-by="DATE">Date</th>
+		        <th md-column >Address</th>
+		        <th md-column >Pincode</th>
+  			 </tr>
+     
+            </thead>
+            <tbody md-body>
+              <tr md-row md-select="row" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="row in filteredRows | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                
+                <td md-cell>{{row.RECEIPT_NO}}</td>
+		        <td md-cell>{{row.NAME}}</td>
+		        <td md-cell>{{row.MOBILE}}</td>
+		        <td md-cell>{{row.LIFE_MEM_NO}}</td>
+		        <td md-cell>{{row.TRUSTEE_ACC_NO}}</td>
+		        <td md-cell>{{row.SEVAI_TYPE}}</td>
+		        <td md-cell>{{row.GOTHRAM}}</td>
+		        <td md-cell>{{row.STAR}}</td>
+		        <td md-cell>{{row.RASI}}</td>
+		        <td md-cell>{{row.AMOUNT}}</td>
+		        <td md-cell>{{row.DATE}}</td>
+		        <td md-cell>{{row.ADDRESS}}</td>
+		        <td md-cell>{{row.PINCODE}}</td>
+
+               </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{filteredRows.length}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+      </md-card>
+    </md-content>
+    
