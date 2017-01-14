@@ -43,6 +43,27 @@ var Menu = remote.Menu;
                     }
                 },
 
+
+                 {
+                    label: 'Payment',
+                    role: 'payment',
+                     click: function(){
+
+                        $state.go("payment");
+                    }
+                },
+
+
+
+                 {
+                    label: 'Search For Payment',
+                    role: 'searchpayment',
+                     click: function(){
+
+                        $state.go("searchPayment");
+                    }
+                },
+
                
                 {
                     label: 'Exit',

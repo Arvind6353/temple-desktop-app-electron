@@ -53,6 +53,16 @@
                             reload:true
 
                         }) 
+                         .state('payment', {
+                            url: '/payment',
+                           templateUrl: './scripts/payment/payment.html',
+                            controller:'PaymentController'
+                        }) 
+                          .state('searchPayment', {
+                            url: '/searchPayment',
+                           templateUrl: './scripts/payment/searchPayment.html',
+                            controller:'SearchPaymentController'
+                        }) 
 
                  $urlRouterProvider.otherwise('/');
             
