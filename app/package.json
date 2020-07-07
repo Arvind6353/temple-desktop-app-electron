@@ -7,7 +7,7 @@
     "asar": "^0.11.0",
     "electron-html-to": "^2.3.0",
     "electron-packager": "8.4.0",
-    "electron": "1.4.13",
+    "electron": "9.1.0",
 
     "mysql": "github:felixge/node-mysql"
   }
